@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipesActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/srTopContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_bottom"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/srPageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suggested Recipes"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+        <ImageView
+            android:id="@+id/srPageImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/pantry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/srSuggestedRecipesItems"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/srTopContainer"
+        app:layout_constraintBottom_toTopOf="@id/srUnavailableTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="1"
+        tools:listitem="@layout/suggested_recipe_item" />
+
+    <TextView
+        android:id="@+id/srEmptyMessage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="No recipes match your pantry yet - add more ingredients"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/srSuggestedRecipesItems"
+        app:layout_constraintBottom_toBottomOf="@id/srSuggestedRecipesItems"
+        app:layout_constraintStart_toStartOf="@id/srSuggestedRecipesItems"
+        app:layout_constraintEnd_toEndOf="@id/srSuggestedRecipesItems" />
+
+    <TextView
+        android:id="@+id/srUnavailableTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingStart="20dp"
+        android:text="Unavailable Recipes (Missing Ingredients)"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/srSuggestedRecipesItems"
+        app:layout_constraintBottom_toTopOf="@id/srUnavailableRecipesItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/srUnavailableRecipesItems"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/srUnavailableTxt"
+        app:layout_constraintBottom_toTopOf="@id/srNavBtns"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_weight="1"
+        tools:listitem="@layout/unavailable_recipe_item" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/srNavBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/border_top"
+        android:padding="15dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/srNavGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/srBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/pantry"
+                android:contentDescription="@string/pantry_btn_text" />
+
+            <TextView
+                android:id="@+id/srBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pantry_btn_text"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/srRecipesNavGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/srNavGroup"
+            app:layout_constraintEnd_toStartOf="@id/srSettingsNavGroup"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/srRecipesBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/blender"
+                android:contentDescription="@string/recipes_btn_text" />
+
+            <TextView
+                android:id="@+id/srRecipesBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipes_btn_text"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/srSettingsNavGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/srSettingsBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/settings"
+                android:contentDescription="@string/settings_btn_text" />
+
+            <TextView
+                android:id="@+id/srSettingsBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_btn_text"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
