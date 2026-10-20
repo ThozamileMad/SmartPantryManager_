@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addTopContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_bottom"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/addPageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Add"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/addPageImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/edit"
+            android:contentDescription="add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addTopContainer"
+        >
+
+        <LinearLayout
+            android:id="@+id/addNameFormGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/addQtyUnitFormGroup"
+            app:layout_constraintEnd_toEndOf="@id/addForm"
+            app:layout_constraintStart_toStartOf="@id/addForm"
+            app:layout_constraintTop_toTopOf="@id/addForm">
+
+            <TextView
+                android:id="@+id/addNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addNameEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:labelFor="@id/addNameTxt"
+                android:hint="White Bread"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addQtyUnitFormGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/addExpDateFormGroup"
+            app:layout_constraintEnd_toEndOf="@id/addForm"
+            app:layout_constraintStart_toStartOf="@id/addForm"
+            app:layout_constraintTop_toBottomOf="@id/addNameFormGroup">
+
+
+            <LinearLayout
+                android:id="@+id/addQtyFormGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+                <TextView
+                    android:id="@+id/addQtyTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/addQtyEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:labelFor="@id/addQtyTxt"
+                    android:hint="5"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addUnitFormGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="5dp">
+
+                <TextView
+                    android:id="@+id/addUnitTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unit"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/addUnitEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:labelFor="@id/addUnitTxt"
+                    android:hint="kg" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addExpDateFormGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/addForm"
+            app:layout_constraintEnd_toEndOf="@id/addForm"
+            app:layout_constraintTop_toBottomOf="@id/addQtyUnitFormGroup"
+            >
+
+            <TextView
+                android:id="@+id/addExpDateTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expiry Date"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                />
+
+            <EditText
+                android:id="@+id/addExpDateEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/addExpDateTxt"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:hint="2026-05-01"
+                />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/addErrTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addForm"
+        android:text="Error message"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/addBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addErrTxt"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        >
+
+        <Button
+            android:id="@+id/addSvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green2"
+            android:textColor="@color/white"
+            android:text="Save Item"
+            android:padding="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addNavBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/border_top"
+        android:padding="15dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/addPantryNavGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/addPantryBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/pantry"
+                android:contentDescription="@string/pantry_btn_text" />
+
+            <TextView
+                android:id="@+id/addPantryBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pantry_btn_text"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addRecipesNavGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/addPantryNavGroup"
+            app:layout_constraintEnd_toStartOf="@id/addSettingsNavGroup"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/addRecipesBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/blender"
+                android:contentDescription="@string/recipes_btn_text" />
+
+            <TextView
+                android:id="@+id/addRecipesBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipes_btn_text"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addSettingsNavGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/addSettingsBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/settings"
+                android:contentDescription="@string/settings_btn_text" />
+
+            <TextView
+                android:id="@+id/addSettingsBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_btn_text"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
